@@ -58,32 +58,33 @@
 
 
 import React, { useState } from 'react';
-import './RSVPForm.css';
+import './RSVPForm.css'; // Make sure this CSS file exists or remove the line if not used
 
 function RSVPForm() {
-  const [form, setForm] = useState({ name: '', email: '', phone: '', attending: false });
+  const [form, setForm] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    attending: false,
+  });
   const [status, setStatus] = useState('idle');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus('submitting');
 
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbwA0GCc_X9rW8W0I6dIQqzsvQPqPmVBsGeJINrFuaR_7oERpluUWb1PSaTTvPjSSqo/exec';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbypw45PfG3K0rALIVpa2g9nrkaTKVPMXjK3b2tQvFYLCceNmAjSzH_Al350dNWt_oc/exec'
 
     try {
+      const formData = new FormData();
+      formData.append('name', form.name);
+      formData.append('email', form.email);
+      formData.append('phone', form.phone);
+      formData.append('attending', form.attending ? 'Yes' : 'No');
+
       const response = await fetch(scriptURL, {
         method: 'POST',
-        body: new FormData(
-          Object.entries({
-            name: form.name,
-            email: form.email,
-            phone: form.phone,
-            attending: form.attending ? 'Yes' : 'No',
-          }).reduce((f, [key, value]) => {
-            f.append(key, value);
-            return f;
-          }, new FormData())
-        ),
+        body: formData,
       });
 
       if (response.ok) {
