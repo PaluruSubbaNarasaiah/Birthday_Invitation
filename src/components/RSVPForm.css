@@ -1,0 +1,83 @@
+.rsvp-container {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #fff6f6;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  .rsvp-container h2 {
+    color: #b86b77;
+    margin-bottom: 24px;
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-align: center;
+  }
+  
+  .rsvp-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .rsvp-form input[type="text"],
+  .rsvp-form input[type="email"],
+  .rsvp-form input[type="tel"] {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: 0.3s;
+  }
+  
+  .rsvp-form input:focus {
+    border-color: #b86b77;
+    outline: none;
+    box-shadow: 0 0 5px rgba(184, 107, 119, 0.4);
+  }
+  
+  .checkbox {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: #444;
+  }
+  
+  .checkbox input {
+    margin-right: 8px;
+  }
+  
+  .rsvp-form button {
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    background: #b86b77;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 4px 12px rgba(184, 107, 119, 0.4);
+  }
+  
+  .rsvp-form button:hover {
+    background: #984d5a;
+    box-shadow: 0 6px 18px rgba(184, 107, 119, 0.5);
+  }
+  
+  @media (max-width: 600px) {
+    .rsvp-container {
+      padding: 20px;
+    }
+  
+    .rsvp-container h2 {
+      font-size: 1.5rem;
+    }
+  
+    .rsvp-form input,
+    .rsvp-form button {
+      font-size: 14px;
+    }
+  }
+  
